@@ -84,12 +84,12 @@ export function isPromise(value: unknown): value is Promise<unknown> {
 }
 
 
-// todo:
+// todo: logic
 export function isIterable(): boolean {
   return false;
 }
 
-// todo:
+// todo: correct logic: true if the value is null, undefined, or array / object / string are empty.
 export function isEmpty(value: unknown): boolean {
   return false;
 }

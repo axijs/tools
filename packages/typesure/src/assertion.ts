@@ -1,10 +1,13 @@
-import {isNullOrUndefined} from './guards';
+import {isEmpty, isNullOrUndefined} from './guards';
+
 
 /**
  * Throws an error if the condition is true.
  * @param condition  - If true, an error will be thrown.
  * @param exceptionMessage - The message for the error.
  * @throws {Error} if the value is true
+ *
+ * todo: exceptionMessage should be string or function with string result
  */
 export function throwIf(condition: boolean, exceptionMessage: string): asserts condition is false {
   if (condition) {
@@ -13,7 +16,7 @@ export function throwIf(condition: boolean, exceptionMessage: string): asserts c
 }
 
 /**
- * Throws an error if the value is null, undefined, or an empty array.
+ * Throws an error if the value is null, undefined, or an array / object / string are empty.
  *
  * @template T The type of the value being checked.
  * @param value The value to check.
@@ -38,10 +41,7 @@ export function throwIfEmpty<T>(
   value: T,
   exceptionMessage: string
 ): asserts value is NonNullable<T> {
-  throwIf(
-    isNullOrUndefined(value) || (Array.isArray(value) && !value.length),
-    exceptionMessage
-  );
+  throwIf(isEmpty(value), exceptionMessage);
 }
 
 /**
