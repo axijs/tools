@@ -1,0 +1,31 @@
+{
+  "name": "@axijs/typesure",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axijs/tools.git",
+    "directory": "packages/typesure"
+  },
+  "keywords": [
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "docs": "typedoc src/index.ts --out docs/api --options ../../typedoc.json",
+    "test": "echo 'No tests yet for @axijs/typesure'"
+  },
+  "files": [
+    "dist"
+  ]
+}

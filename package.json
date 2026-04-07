@@ -1,0 +1,28 @@
+{
+  "name": "axijs",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "keywords": [
+  ],
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@types/node": "latest",
+    "dts-bundle-generator": "^9.5.1",
+    "tsdown": "^0.20.0-beta.3",
+    "tsup": "^8.5.1",
+    "typedoc": "^0.28.14",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vite-tsconfig-paths": "^6.0.4",
+    "vitest": "^4.0.17"
+  },
+  "scripts": {
+  }
+}
