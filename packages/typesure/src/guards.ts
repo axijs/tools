@@ -60,7 +60,7 @@ export function isString(val: unknown): val is string {
  * @returns {boolean} `true` if the value is a non-null, non-array object.
  */
 export function isObject(value: unknown): value is Record<PropertyKey, unknown> {
-  return value !== null && !Array.isArray(value) && typeof value === 'object';
+  return !isNullOrUndefined(value) && !Array.isArray(value) && typeof value === 'object';
 }
 
 /**
@@ -80,16 +80,29 @@ export function isFunction(value: unknown): value is (...args: any[]) => any {
  * @returns {boolean} `true` if the value has a `then` function.
  */
 export function isPromise(value: unknown): value is Promise<unknown> {
-  return value != null && typeof (value as any).then === 'function';
+  return value != null && isFunction((value as any).then);
 }
 
-
-// todo: logic
-export function isIterable(): boolean {
-  return false;
+/**
+ * Type guard that checks if a value is iterable (can be used in a for...of loop).
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value implements the Iterable protocol, otherwise `false`.
+ */
+export function isIterable(value: unknown): value is Iterable<unknown> {
+  return !isNullOrUndefined(value) && isFunction(value[Symbol.iterator]);
 }
 
-// todo: correct logic: true if the value is null, undefined, or array / object / string are empty.
+/**
+ * Checks if a value is empty.
+ * Returns `true` for `null`, `undefined`, empty strings, empty arrays, and objects with no own enumerable properties.
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is considered empty, otherwise `false`.
+ */
 export function isEmpty(value: unknown): boolean {
-  return false;
+  return isNullOrUndefined(value) ||
+    (isString(value) && !value.length) ||
+    (Array.isArray(value) && !value.length) ||
+    (isObject(value) && !Object.keys(value).length);
 }
