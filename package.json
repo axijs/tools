@@ -14,7 +14,6 @@
   "devDependencies": {
     "@types/node": "latest",
     "dts-bundle-generator": "^9.5.1",
-    "tsdown": "^0.20.0-beta.3",
     "tsup": "^8.5.1",
     "typedoc": "^0.28.14",
     "typedoc-plugin-markdown": "^4.9.0",
@@ -24,7 +23,10 @@
     "vitest": "^4.0.17"
   },
   "scripts": {
-    "build:typesure": "npm run build --workspace=@axijs/typesure",
-    "docs:typesure": "npm run docs --workspace=@axijs/typesure"
+    "test": "vitest",
+    "build:ensure": "npm run build --workspace=@axijs/ensure",
+    "publish:ensure": "npm publish --workspace=@axijs/ensure --access public",
+    "release:ensure": "npm run build:ensure && npm run publish:ensure",
+    "docs:ensure": "npm run docs --workspace=@axijs/ensure"
   }
 }

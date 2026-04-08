@@ -1,8 +1,8 @@
-**@axijs/typesure**
+**@axijs/ensure**
 
 ***
 
-# @axijs/typesure
+# @axijs/ensure
 
 ## Functions
 

@@ -4,8 +4,8 @@
     // baseUrl and paths required for IDE for correct aliases resolving
     "baseUrl": ".",
     "paths": {
-      "@axijs/typesure": [
-        "packages/typesure/src"
+      "@axijs/ensure": [
+        "packages/ensure/src"
       ]
     }
   },
@@ -20,7 +20,7 @@
   */
   "references": [
     {
-      "path": "packages/typesure"
+      "path": "packages/ensure"
     }
   ]
 }

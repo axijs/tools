@@ -1,8 +1,8 @@
-[**@axijs/typesure**](../README.md)
+[**@axijs/ensure**](../README.md)
 
 ***
 
-[@axijs/typesure](../README.md) / isString
+[@axijs/ensure](../README.md) / isString
 
 # Function: isString()
 

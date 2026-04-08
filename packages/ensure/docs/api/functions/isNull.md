@@ -1,8 +1,8 @@
-[**@axijs/typesure**](../README.md)
+[**@axijs/ensure**](../README.md)
 
 ***
 
-[@axijs/typesure](../README.md) / isNull
+[@axijs/ensure](../README.md) / isNull
 
 # Function: isNull()
 

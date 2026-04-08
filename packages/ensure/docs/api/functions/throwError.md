@@ -1,8 +1,8 @@
-[**@axijs/typesure**](../README.md)
+[**@axijs/ensure**](../README.md)
 
 ***
 
-[@axijs/typesure](../README.md) / throwError
+[@axijs/ensure](../README.md) / throwError
 
 # Function: throwError()
 

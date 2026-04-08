@@ -1,8 +1,8 @@
-[**@axijs/typesure**](../README.md)
+[**@axijs/ensure**](../README.md)
 
 ***
 
-[@axijs/typesure](../README.md) / isBoolean
+[@axijs/ensure](../README.md) / isBoolean
 
 # Function: isBoolean()
 

@@ -1,8 +1,8 @@
-[**@axijs/typesure**](../README.md)
+[**@axijs/ensure**](../README.md)
 
 ***
 
-[@axijs/typesure](../README.md) / throwIf
+[@axijs/ensure](../README.md) / throwIf
 
 # Function: throwIf()
 

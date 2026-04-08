@@ -1,8 +1,8 @@
-[**@axijs/typesure**](../README.md)
+[**@axijs/ensure**](../README.md)
 
 ***
 
-[@axijs/typesure](../README.md) / isIterable
+[@axijs/ensure](../README.md) / isIterable
 
 # Function: isIterable()
 
