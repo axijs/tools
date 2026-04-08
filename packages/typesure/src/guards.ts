@@ -90,7 +90,7 @@ export function isPromise(value: unknown): value is Promise<unknown> {
  * @returns `true` if the value implements the Iterable protocol, otherwise `false`.
  */
 export function isIterable(value: unknown): value is Iterable<unknown> {
-  return !isNullOrUndefined(value) && isFunction(value[Symbol.iterator]);
+  return !isNullOrUndefined(value) && isFunction((value as any)[Symbol.iterator]);
 }
 
 /**

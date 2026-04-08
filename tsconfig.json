@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // baseUrl and paths required for IDE for correct aliases resolving
+    "baseUrl": ".",
+    "paths": {
+      "@axijs/typesure": [
+        "packages/typesure/src"
+      ]
+    }
+  },
+
+  "files": [],
+  /**
+    * the references property to list all the projects of the monorepo.
+    * For each of the projects, we need to provide a path property with
+    * a relative file system path to the project root.
+    * The files field should contain an empty list to prevent double compilation of files
+    * (according to official TypeScript guidelines: https://www.typescriptlang.org/docs/handbook/project-references.html#guidance).
+  */
+  "references": [
+    {
+      "path": "packages/typesure"
+    }
+  ]
+}
+

@@ -24,5 +24,7 @@
     "vitest": "^4.0.17"
   },
   "scripts": {
+    "build:typesure": "npm run build --workspace=@axijs/typesure",
+    "docs:typesure": "npm run docs --workspace=@axijs/typesure"
   }
 }
