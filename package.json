@@ -24,9 +24,17 @@
   },
   "scripts": {
     "test": "vitest",
+    "// --- BUILD PACKAGES PROCESS ---": "",
+    "build:emitter": "npm run build --workspace=@axijs/emitter",
     "build:ensure": "npm run build --workspace=@axijs/ensure",
+    "// --- PUBLISH PACKAGES PROCESS ---": "",
+    "publish:emitter": "npm publish --workspace=@axijs/emitter --access public",
     "publish:ensure": "npm publish --workspace=@axijs/ensure --access public",
+    "// --- RELEASE PACKAGES PROCESS ---": "",
+    "release:emitter": "npm run build:emitter && npm run publish:emitter",
     "release:ensure": "npm run build:ensure && npm run publish:ensure",
+    "// --- DOCUMENTATION ---": "",
+    "docs:emitter": "npm run docs --workspace=@axijs/emitter",
     "docs:ensure": "npm run docs --workspace=@axijs/ensure"
   }
 }

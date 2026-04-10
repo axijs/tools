@@ -4,6 +4,9 @@
     // baseUrl and paths required for IDE for correct aliases resolving
     "baseUrl": ".",
     "paths": {
+      "@axijs/emitter": [
+        "packages/emitter/src"
+      ],
       "@axijs/ensure": [
         "packages/ensure/src"
       ]
@@ -19,6 +22,9 @@
     * (according to official TypeScript guidelines: https://www.typescriptlang.org/docs/handbook/project-references.html#guidance).
   */
   "references": [
+    {
+      "path": "packages/emitter",
+    },
     {
       "path": "packages/ensure"
     }
