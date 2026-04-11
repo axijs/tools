@@ -1,5 +1,4 @@
 import {Unsubscribable} from './types';
-import {isFunction} from '@axijs/ensure';
 
 /**
  * Represents a disposable resource, such as the execution of an Observable or an Event Listener.
@@ -31,11 +30,12 @@ export class Subscription implements Unsubscribable {
    * @param teardown A function or another Unsubscribable object to be managed.
    */
   add(teardown: Unsubscribable | (() => void)): void {
+    const isFunction = typeof teardown === 'function';
     if (this._closed) {
-      isFunction(teardown) ? teardown() : teardown.unsubscribe();
+      isFunction ? teardown() : teardown.unsubscribe();
       return;
     }
-    this._teardowns.push(isFunction(teardown) ? teardown : () => teardown.unsubscribe());
+    this._teardowns.push(isFunction ? teardown : () => teardown.unsubscribe());
   }
 
   /**

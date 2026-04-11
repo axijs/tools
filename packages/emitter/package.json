@@ -1,6 +1,6 @@
 {
   "name": "@axijs/emitter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimalistic, type-safe library for single-event and state emitting",
   "license": "MIT",
   "homepage": "https://github.com/axijs/tools/tree/main/packages/emitter",

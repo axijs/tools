@@ -101,12 +101,8 @@ masterSub.unsubscribe();
 
 ## API Documentation
 
-For a complete list of classes, interfaces, and methods, please visit the [API Documentation](https://github.com/axijs/tools/tree/main/packages/emitter/docs/api).
-
-## License
-
-MIT
-```
+For a complete list of classes, interfaces, 
+and methods, please visit the [API Documentation](https://github.com/axijs/tools/tree/main/packages/emitter/docs/api).
 
 ## License
 
