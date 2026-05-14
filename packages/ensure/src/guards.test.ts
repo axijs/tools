@@ -6,6 +6,8 @@ import {
   isNullOrUndefined,
   isNumber,
   isObject,
+  isMap,
+  isSet,
   isPromise,
   isString,
   isUndefined
@@ -94,6 +96,28 @@ describe('Type Guards & Utilities', () => {
     expect(isIterable(123)).toBe(false);
   });
 
+  it('isMap', () => {
+    expect(isMap('')).toBe(false);
+    expect(isMap(115)).toBe(false);
+    expect(isMap([])).toBe(false);
+    expect(isMap({})).toBe(false);
+    expect(isMap({size: 10})).toBe(false);
+    expect(isMap(new Set)).toBe(false);
+
+    expect(isMap(new Map())).toBe(true);
+  });
+
+  it('isSet', () => {
+    expect(isSet('')).toBe(false);
+    expect(isSet(115)).toBe(false);
+    expect(isSet([])).toBe(false);
+    expect(isSet({})).toBe(false);
+    expect(isSet({size: 10})).toBe(false);
+    expect(isSet(new Map)).toBe(false);
+
+    expect(isSet(new Set())).toBe(true);
+  });
+
   it('isEmpty', () => {
     // Empty cases
     expect(isEmpty(null)).toBe(true);
@@ -101,6 +125,8 @@ describe('Type Guards & Utilities', () => {
     expect(isEmpty('')).toBe(true);
     expect(isEmpty([])).toBe(true);
     expect(isEmpty({})).toBe(true);
+    expect(isEmpty(new Map())).toBe(true);
+    expect(isEmpty(new Set())).toBe(true);
 
     // Non-empty cases
     expect(isEmpty('text')).toBe(false);
@@ -110,5 +136,18 @@ describe('Type Guards & Utilities', () => {
     // Primitives that are not "empty" by length/keys
     expect(isEmpty(0)).toBe(false);
     expect(isEmpty(false)).toBe(false);
+
+    // Map and set
+    expect(isEmpty(new Map([['key', 'value']]))).toBe(false);
+    expect(isEmpty(new Set(['value']))).toBe(false);
+
+    // Case for class
+    class EmptyClass {}
+    const instance = new EmptyClass();
+    expect(isEmpty(instance)).toBe(false);
+
+    // Case for object with prototype
+    const objWithProto = Object.create({ someMethod: () => {} });
+    expect(isEmpty(objWithProto)).toBe(false);
   });
 });

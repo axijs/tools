@@ -1,6 +1,6 @@
 {
   "name": "@axijs/ensure",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight collection of TypeScript type guards and assertions",
   "license": "MIT",
   "homepage": "https://github.com/axijs/tools/tree/main/packages/ensure",

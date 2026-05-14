@@ -94,15 +94,49 @@ export function isIterable(value: unknown): value is Iterable<unknown> {
 }
 
 /**
+ * Checks if a value is a Map.
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is a Map, otherwise `false`.
+ */
+export function isMap(value: unknown): value is Map<unknown, unknown> {
+  return value instanceof Map;
+}
+
+/**
+ * Checks if a value is a Set.
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is a Set, otherwise `false`.
+ */
+export function isSet(value: unknown): value is Set<unknown> {
+  return value instanceof Set;
+}
+
+/**
  * Checks if a value is empty.
- * Returns `true` for `null`, `undefined`, empty strings, empty arrays, and objects with no own enumerable properties.
+ * Returns `true` for `null`, `undefined`, empty strings, empty arrays, empty Maps / Sets,
+ * and objects with no own enumerable properties.
+ *
+ * Complex objects like DOM elements or class instances are never considered empty.
  *
  * @param value - The value to check.
  * @returns `true` if the value is considered empty, otherwise `false`.
  */
 export function isEmpty(value: unknown): boolean {
-  return isNullOrUndefined(value) ||
-    (isString(value) && !value.length) ||
-    (Array.isArray(value) && !value.length) ||
-    (isObject(value) && !Object.keys(value).length);
+  if (isNullOrUndefined(value)) { return true; }
+  if (isString(value) || Array.isArray(value)) { return !value.length; }
+  if (isMap(value) || isSet(value)) { return !value.size; }
+
+  if (isObject(value)) {
+    const proto = Object.getPrototypeOf(value);
+    /**
+     * Object.prototype is equivalent to Object.getPrototypeOf({}).
+     * If we get the prototype of an HTMLElement, it will be a different object, not equivalent to Object.prototype.
+     * For plain objects like {a: 10}, the prototype is strictly Object.prototype.
+     */
+    const isPlainObject = proto === Object.prototype || proto === null;
+    return isPlainObject && !Object.keys(value).length;
+  }
+  return false;
 }
